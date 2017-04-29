@@ -30,7 +30,7 @@
     "test": "npm run test:coverage",
     "test:tape": "ts-node -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts",
     "test:tdd": "ts-node -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts",
-    "test:coverage": "nyc npm run test:tape",
+    "test:coverage": "nyc npm run test:tape && nyc report --reporter=text-lcov | coveralls",
     "start": "run-p build:watch serve test:tdd",
     "serve": "lite-server -c server.config.js",
     "prepublish": "npm run test && uglifyjs build/d3-czip.js -c -m -o build/d3-czip.min.js",
@@ -56,6 +56,7 @@
   "devDependencies": {
     "@types/tape": "^4.2.29",
     "bestzip": "^1.1.4",
+    "coveralls": "^2.13.1",
     "lite-server": "^2.3.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.2",
