@@ -1,0 +1,71 @@
+{
+  "name": "d3-czip",
+  "version": "1.0.0",
+  "description": "Generates a collection from multiple arrays",
+  "keywords": [
+    "d3",
+    "d3-module"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-czip.js",
+  "jsnext:main": "build/jsnext/index.js",
+  "module": "build/jsnext/index.js",
+  "types": "build/types/index.d.ts",
+  "author": "Smartin Nematronic",
+  "homepage": "https://github.com/smartin85/d3-czip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smartin85/d3-czip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smartin85/d3-czip/issues"
+  },
+  "scripts": {
+    "clean": "rimraf build && mkdir build",
+    "build": "tsc && rollup -c",
+    "build:watch": "run-p build:watch:*",
+    "build:watch:tsc": "tsc -w",
+    "build:watch:rollup": "rollup -c -w",
+    "pretest": "npm run clean && npm run build",
+    "test": "ts-node -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts",
+    "test:tdd": "ts-node -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts",
+    "test:coverage": "nyc npm test",
+    "start": "run-p build:watch serve test:tdd",
+    "serve": "lite-server -c server.config.js",
+    "prepublish": "npm run test && uglifyjs build/d3-czip.js -c -m -o build/d3-czip.min.js",
+    "postpublish": "bestzip build/d3-czip.zip -- LICENSE README.md build/d3-czip.js build/d3-czip.min.js"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "extension": ".ts",
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "@types/tape": "^4.2.29",
+    "bestzip": "^1.1.4",
+    "lite-server": "^2.3.0",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^10.3.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6",
+    "rollup-watch": "^3.2.2",
+    "tape": "^4.6.3",
+    "tape-watch": "^2.3.0",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2",
+    "uglify-js": "^2.8.22"
+  }
+}

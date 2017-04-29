@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3 plugin - d3-czip</title>
+    <style type="text/css">
+		svg {
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+
+<div id="chart"></div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="d3-czip.js"></script>
+<script type="text/javascript">
+	var w=960,
+		h=500,
+	    svg=d3.select("#chart")
+	        .append("svg")
+	        .attr("width",w)
+	        .attr("height",h),
+		data = {
+			x: [100, 200, 300, 400, 500, 600, 700, 800],
+			y: [50, 150, 80, 200, 300, 120, 350, 210],
+			r: [50, 10, 30, 20, 60, 15, 40, 25],
+			c: ['red', 'blue', 'green', 'yellow', 'cyan', 'coral', 'black', 'grey']
+		};
+
+	svg.selectAll("circle")
+    	.data(d3.czip(data))
+  		.enter()
+    	.append("circle")
+		.attr("cx", function(d) { return d.x; })
+		.attr("cy", function(d) { return d.y; })
+		.attr("r", function(d) { return d.r; })
+		.attr("fill", function(d) { return d.c; });
+</script>
+</body>
