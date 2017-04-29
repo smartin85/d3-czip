@@ -9,7 +9,7 @@ Generates a collection from multiple arrays
 
 ## Installing
 
-If you use NPM, `npm install --save d3-czip`. If you use Bower, `bower install --save d3-czip`. Otherwise, download the [latest release](https://github.com/d3/d3-czip/releases/latest).
+If you use NPM, `npm install --save d3-czip`. If you use Bower, `bower install --save d3-czip`. Otherwise, download the [latest release](https://github.com/smartin85/d3-czip/releases/latest).
 
 ```html
 <script src="https://d3js.org/d3.v4.min.js"></script>
