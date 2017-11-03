@@ -2,7 +2,7 @@ import * as tape from 'tape';
 import czip from '../src/czip';
 
 
-tape("zip ist a function", function(test) {
+tape("zip is a function", function(test) {
 	test.equal(typeof czip, 'function');
   	test.end();
 });
@@ -24,7 +24,7 @@ tape("zip combines arrays to a collection", function(test) {
   	test.end();
 });
 
-tape("zip combines arrays to a collection by a given primary-kex", function(test) {
+tape("zip combines arrays to a collection by a given primary-key", function(test) {
 	var input = {
 		x: [1, 2, 3, 4, 5],
 		y: ['a', 'b', 'c', 'd'],

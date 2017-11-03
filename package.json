@@ -1,24 +1,24 @@
 {
-  "name": "d3-czip",
-  "version": "1.0.0",
-  "description": "Generates a collection from multiple arrays",
+  "name": "d3-jsx",
+  "version": "0.1.0",
+  "description": "A d3 (v4) module to add JSX support",
   "keywords": [
     "d3",
     "d3-module"
   ],
   "license": "BSD-3-Clause",
-  "main": "build/d3-czip.js",
+  "main": "build/d3-jsx.js",
   "jsnext:main": "build/jsnext/index.js",
   "module": "build/jsnext/index.js",
   "types": "build/types/index.d.ts",
-  "author": "Smartin Nematronic",
-  "homepage": "https://github.com/smartin85/d3-czip",
+  "author": "Bill Kidwell",
+  "homepage": "https://github.com/d3-jsx/d3-jsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/smartin85/d3-czip.git"
+    "url": "https://github.com/d3-jsx/d3-jsx.git"
   },
   "bugs": {
-    "url": "https://github.com/smartin85/d3-czip/issues"
+    "url": "https://github.com/d3-jsx/d3-jsx/issues"
   },
   "scripts": {
     "clean": "rimraf build && mkdir build",
@@ -30,11 +30,11 @@
     "test": "npm run test:coverage",
     "test:tape": "ts-node -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts",
     "test:tdd": "ts-node -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts",
-    "test:coverage": "nyc npm run test:tape && nyc report --reporter=text-lcov | coveralls",
+    "test:coverage": "nyc npm run test:tape",
     "start": "run-p build:watch serve test:tdd",
     "serve": "lite-server -c server.config.js",
-    "prepublish": "npm run test && uglifyjs build/d3-czip.js -c -m -o build/d3-czip.min.js",
-    "postpublish": "bestzip build/d3-czip.zip -- LICENSE README.md build/d3-czip.js build/d3-czip.min.js"
+    "prepublish": "npm run test && uglifyjs build/d3-jsx.js -c -m -o build/d3-jsx.min.js",
+    "postpublish": "bestzip build/d3-jsx.zip -- LICENSE README.md build/d3-jsx.js build/d3-jsx.min.js"
   },
   "nyc": {
     "include": [
@@ -69,5 +69,11 @@
     "ts-node": "^3.0.2",
     "typescript": "^2.2.2",
     "uglify-js": "^2.8.22"
+  },
+  "dependencies": {
+    "@types/d3-selection": "^1.1.0",
+    "@types/d3-transition": "^1.1.1",
+    "d3-selection": "^1.1.0",
+    "d3-transition": "^1.1.0"
   }
 }

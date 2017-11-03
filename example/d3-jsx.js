@@ -12,14 +12,7 @@
  * @param {string} [primary] Key of primary array (result will have the same length)
  * @returns {{[key: string]: any}} Collection
  */
-/**
- * Generates a collection from multiple arrays
- *
- * @export
- * @param {{[key: string]: any[]}} input Object with arrays
- * @param {string} [primary] Key of primary array (result will have the same length)
- * @returns {{[key: string]: any}} Collection
- */ var czip = function (input, primary) {
+var czip = function (input, primary) {
     var keys = Object.keys(input), primaryValues = input[primary || keys[0]];
     return primaryValues.map(function (val, i) {
         var res = {};
