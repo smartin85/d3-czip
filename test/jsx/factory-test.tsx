@@ -116,3 +116,16 @@ tape('should allow expression children', function(test) {
     test.end();
 });
 
+tape('should render a functional, stateless component', function(test) {
+  const SeeYa = (props) => {
+    return (
+      <text textAnchor="middle" x={props.x} y={props.y}>See you next time!</text>
+    );
+  }
+
+  test.deepEqual( <SeeYa textAnchor="middle" x={100} y={50}/>,
+    <text textAnchor="middle" x={100} y={50}>See you next time!</text>
+  );
+
+  test.end();
+});
