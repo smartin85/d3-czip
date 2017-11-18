@@ -1,5 +1,6 @@
 import * as tape from 'tape';
 import factory from '../../src/jsx/factory';
+import Component from '../../src/Component';
 
 // I duplicated a number of tests from https://github.com/calebmer/node_modules/blob/master/babel-plugin-transform-jsx
 // It was used in early versions of this project.
@@ -125,6 +126,29 @@ tape('should render a functional, stateless component', function(test) {
 
   test.deepEqual( <SeeYa textAnchor="middle" x={100} y={50}/>,
     <text textAnchor="middle" x={100} y={50}>See you next time!</text>
+  );
+
+  test.end();
+});
+
+tape('should render a component', function(test) {
+  interface PositionProps {
+    x: number,
+    y: number
+  };
+
+  class Goodbye extends Component<PositionProps> {
+    constructor(props: PositionProps) {
+      super(props);
+    }
+
+    render() {
+      return (<text textAnchor="middle" x={this.props.x} y={this.props.y}>And Goodbye!</text>);
+    }
+  }
+
+  test.deepEqual( <Goodbye x={50} y={100} />,
+    <text textAnchor="middle" x={50} y={100}>And Goodbye!</text>
   );
 
   test.end();
