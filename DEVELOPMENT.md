@@ -2,8 +2,8 @@
 - [x] clean
 - [x] build
 - [x] build:watch
-- [x] build:watch:tsc
-- [x] build:watch:rollup
+- [x] `build:watch:tsc`
+- [x] `build:watch:rollup`
 - [ ] test (currently erring out)
 - [x] test:tape
 - [x] test:tdd
