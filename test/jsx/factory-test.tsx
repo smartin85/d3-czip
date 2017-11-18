@@ -11,16 +11,26 @@ tape('factory is a function', function(test) {
 });
 
 tape('can handle a simple tag', function(test) {
-    let expected = { tagName: 'text', props: {}, children: [] };
+    // NOTE: props can be null
+    let expected = { tagName: 'text', props: null, children: [] };
     
-    test.deepEqual( factory('text'), expected );
+    test.deepEqual( <text></text>, expected );
     test.end();
 });
+
+tape('can handle a simple self-closing tag', function(test) {
+  // NOTE: props can be null
+  let expected = { tagName: 'text', props: null, children: [] };
+  
+  test.deepEqual( <text />, expected );
+  test.end();
+});
+
 
 tape('properly sets props on simple tags', function(test) {
     let expected = { tagName: 'text', props: { width: 200, height: 100 }, children: []};
 
-    test.deepEqual( factory('text', {height: 100, width: 200}), expected );
+    test.deepEqual( <text width={200} height={100}></text>, expected );
     test.end();
 });
 
@@ -39,17 +49,19 @@ tape('should output object', function(test) {
     //       </body>
     //     </html>
     //   )
-    let actual = factory('html', {lang: "en"}, [
-        factory('head', {}, [
-            factory('meta', {charSet: "utf8"}),
-            factory('title', {}, ["A JSX Test"])
-        ]),
-        factory('body', {}, [
-            factory('div', {id: "container"}, [
-                factory('p', {}, ["Just a basic JSX transformation"])
-            ])
-        ])
-    ]);
+    let actual = (
+        <html lang="en">
+          <head>
+            <meta charSet="utf8"/>
+            <title>A JSX Test</title>
+          </head>
+          <body>
+            <div id="container">
+              <p>Just a basic JSX transformation</p>
+            </div>
+          </body>
+        </html>
+      );
 
     let expected = {
         tagName: "html",
@@ -58,7 +70,7 @@ tape('should output object', function(test) {
         },
         children: [{
           tagName: "head",
-          props: {},
+          props: null,
           children: [{
             tagName: "meta",
             props: {
@@ -67,12 +79,12 @@ tape('should output object', function(test) {
             children: []
           }, {
             tagName: "title",
-            props: {},
+            props: null,
             children: ["A JSX Test"]
           }]
         }, {
           tagName: "body",
-          props: {},
+          props: null,
           children: [{
             tagName: "div",
             props: {
@@ -80,7 +92,7 @@ tape('should output object', function(test) {
             },
             children: [{
               tagName: "p",
-              props: {},
+              props: null,
               children: ["Just a basic JSX transformation"]
             }]
           }]
@@ -92,15 +104,15 @@ tape('should output object', function(test) {
 });
 
 tape('should allow expression children', function(test) {
-    // var jsx = (
-    //     <div>
-    //       {"a" + "b" + "c"}
-    //       {1 + 2 * 3}
-    //     </div>
-    //   )    
-    let expected = { tagName: "div", props: {}, children: [ "a"+"b"+"c", 1+2+3 ] };
+    var jsx = (
+        <div>
+          {"a" + "b" + "c"}
+          {1 + 2 * 3}
+        </div>
+      );
+    let expected = { tagName: "div", props: null, children: [ "a"+"b"+"c", 1+2*3 ] };
 
-    test.deepEqual( factory('div', {}, [ "a"+"b"+"c", 1+2+3 ]), expected );
+    test.deepEqual( jsx, expected );
     test.end();
 });
 
