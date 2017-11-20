@@ -28,8 +28,8 @@
     "build:watch:rollup": "rollup -c -w",
     "pretest": "npm run clean && npm run build",
     "test": "npm run test:coverage",
-    "test:tape": "ts-node -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts*",
-    "test:tdd": "ts-node -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts*",
+    "test:tape": "ts-node --jsx -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts*",
+    "test:tdd": "ts-node --jsx -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts*",
     "test:coverage": "nyc npm run test:tape",
     "start": "run-p build:watch serve test:tdd",
     "serve": "lite-server -c server.config.js",
@@ -38,15 +38,13 @@
   },
   "nyc": {
     "include": [
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "src/**/*.tsx"
     ],
     "exclude": [
       "**/*.d.ts"
     ],
     "extension": ".ts",
-    "require": [
-      "ts-node/register"
-    ],
     "reporter": [
       "text",
       "lcov"
@@ -60,7 +58,7 @@
     "lite-server": "^2.3.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.2",
-    "nyc": "^10.3.0",
+    "nyc": "^11.3.0",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
     "rollup-watch": "^3.2.2",
@@ -74,6 +72,7 @@
     "@types/d3-selection": "^1.1.0",
     "@types/d3-transition": "^1.1.1",
     "d3-selection": "^1.1.0",
-    "d3-transition": "^1.1.0"
+    "d3-transition": "^1.1.0",
+    "global": "^4.3.2"
   }
 }
