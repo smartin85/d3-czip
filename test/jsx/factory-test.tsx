@@ -12,24 +12,24 @@ tape('factory is a function', function(test) {
 });
 
 tape('can handle a simple tag', function(test) {
-    // NOTE: props can be null
-    let expected = { tagName: 'text', props: null, children: [] };
+    // NOTE: attributes can be null
+    let expected = { elementName: 'text', attributes: null, children: [] };
     
     test.deepEqual( <text></text>, expected );
     test.end();
 });
 
 tape('can handle a simple self-closing tag', function(test) {
-  // NOTE: props can be null
-  let expected = { tagName: 'text', props: null, children: [] };
+  // NOTE: attributes can be null
+  let expected = { elementName: 'text', attributes: null, children: [] };
   
   test.deepEqual( <text />, expected );
   test.end();
 });
 
 
-tape('properly sets props on simple tags', function(test) {
-    let expected = { tagName: 'text', props: { width: 200, height: 100 }, children: []};
+tape('properly sets attributes on simple tags', function(test) {
+    let expected = { elementName: 'text', attributes: { width: 200, height: 100 }, children: []};
 
     test.deepEqual( <text width={200} height={100}></text>, expected );
     test.end();
@@ -65,35 +65,35 @@ tape('should output object', function(test) {
       );
 
     let expected = {
-        tagName: "html",
-        props: {
+        elementName: "html",
+        attributes: {
           lang: "en"
         },
         children: [{
-          tagName: "head",
-          props: null,
+          elementName: "head",
+          attributes: null,
           children: [{
-            tagName: "meta",
-            props: {
+            elementName: "meta",
+            attributes: {
               charSet: "utf8"
             },
             children: []
           }, {
-            tagName: "title",
-            props: null,
+            elementName: "title",
+            attributes: null,
             children: ["A JSX Test"]
           }]
         }, {
-          tagName: "body",
-          props: null,
+          elementName: "body",
+          attributes: null,
           children: [{
-            tagName: "div",
-            props: {
+            elementName: "div",
+            attributes: {
               id: "container"
             },
             children: [{
-              tagName: "p",
-              props: null,
+              elementName: "p",
+              attributes: null,
               children: ["Just a basic JSX transformation"]
             }]
           }]
@@ -111,7 +111,7 @@ tape('should allow expression children', function(test) {
           {1 + 2 * 3}
         </div>
       );
-    let expected = { tagName: "div", props: null, children: [ "a"+"b"+"c", 1+2*3 ] };
+    let expected = { elementName: "div", attributes: null, children: [ "a"+"b"+"c", 1+2*3 ] };
 
     test.deepEqual( jsx, expected );
     test.end();

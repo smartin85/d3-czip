@@ -1,26 +1,27 @@
 import Component from '../Component';
+import JSXObject from '../JSXObject';
 
-function isClass( element:any ) {
+function isClass( element:any ) : boolean {
     return typeof element === 'function' 
         && element.prototype instanceof Component;
 }
 
-function isStatelessComponent( element: any ) {
+function isStatelessComponent( element: any ) : boolean {
     return !isClass(element) && typeof element === 'function';
 }
 
-export default function( tag: any, props = {}, ...children ) {
+export default function( elementName: any, attributes = {}, ...children ) : JSXObject {
 
     let element = null;
 
-    if( isClass(tag) ) {
-        let instance = new tag(props);
+    if( isClass(elementName) ) {
+        let instance = new elementName(attributes);
         return instance.render();
-    } else if ( isStatelessComponent(tag) ) {
-        return tag(props);
+    } else if ( isStatelessComponent(elementName) ) {
+        return elementName(attributes);
     } else {
         children = [].concat(...children);
-        element = { tagName: tag, props, children }
+        element = { elementName: elementName, attributes, children }
     }
     
     return element;
