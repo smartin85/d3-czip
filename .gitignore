@@ -1,7 +1,5 @@
 .DS_Store
-build/*.zip
-build/jsnext
-build/typings
+build/*
 node_modules
 npm-debug.log
 .nyc_output

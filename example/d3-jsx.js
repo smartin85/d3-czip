@@ -38,8 +38,8 @@ var factory = function (elementName, attributes) {
         return elementName(attributes);
     }
     else {
-        children = [].concat.apply([], children);
-        element = { elementName: elementName, attributes: attributes, children: children };
+        var elementChildren = [].concat.apply([], children);
+        element = { elementName: elementName, attributes: attributes, children: elementChildren };
     }
     return element;
 };
