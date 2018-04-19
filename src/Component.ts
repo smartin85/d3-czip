@@ -6,14 +6,14 @@
 interface Component<P = {}> { }
 
 class Component<P> {
-    
-    props: P;
 
-    constructor(props?: P, context?: any) {
-        this.props = props;
-    }
-    
-    render() { }
+  props: P;
+
+  constructor(props?: P, context?: any) {
+    this.props = props;
+  }
+
+  render() { }
 }
 
 export default Component;

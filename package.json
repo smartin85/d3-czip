@@ -26,6 +26,7 @@
     "build:watch": "run-p build:watch:*",
     "build:watch:tsc": "tsc -w",
     "build:watch:rollup": "rollup -c -w",
+    "lint": "tslint src/**/*",
     "pretest": "npm run clean && npm run build",
     "test": "npm run test:coverage",
     "test:tape": "ts-node --jsx -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts*",
@@ -65,6 +66,7 @@
     "tape": "^4.6.3",
     "tape-watch": "^2.3.0",
     "ts-node": "^3.0.2",
+    "tslint": "^5.9.1",
     "typescript": "^2.2.2",
     "uglify-js": "^2.8.22"
   },
@@ -73,6 +75,7 @@
     "@types/d3-transition": "^1.1.1",
     "d3-selection": "^1.1.0",
     "d3-transition": "^1.1.0",
-    "global": "^4.3.2"
+    "global": "^4.3.2",
+    "tslint-config-airbnb": "^5.8.0"
   }
 }
