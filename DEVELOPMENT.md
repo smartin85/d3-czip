@@ -1,0 +1,14 @@
+# Status of npm scripts
+- [x] clean
+- [x] build
+- [x] build:watch
+- [x] `build:watch:tsc`
+- [x] `build:watch:rollup`
+- [x] test
+- [x] test:tape
+- [x] test:tdd
+- [x] test:coverage
+- [ ] start (not yet configured)
+- [ ] serve (not yet configured)
+- [ ] prepublish (erring out)
+- [ ] postpublish (erring out)
