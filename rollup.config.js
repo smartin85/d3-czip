@@ -1,8 +1,11 @@
+import commonjs from '@rollup/plugin-commonjs';
+
 export default {
-    entry: 'build/jsnext/index.js',
-    targets: [
-        { dest: 'build/d3-czip.js', format: 'umd' },
-        { dest: 'example/d3-czip.js', format: 'umd' }
+    input: 'build/jsnext/index.js',
+    output: [
+        { file: 'build/d3-czip.js', format: 'umd', name: 'd3', extend: true },
+        { file: 'example/d3-czip.js', format: 'umd', name: 'd3', extend: true }
     ],
-	moduleName: 'd3'
+	name: 'd3',
+    plugins: [commonjs()]
 };

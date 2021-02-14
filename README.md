@@ -1,9 +1,11 @@
 # d3-czip
 [![BSD 3-Clause License][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![npm downloads][downloads-image]][npm-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Coverage percentage][coveralls-image]][coveralls-url]
+
+[![Buy me a coffee][buy-me-a-coffee-image]][buy-me-a-coffee-url]
 
 Generates a collection from multiple arrays
 
@@ -53,14 +55,13 @@ Creates a collection of the arrays.
 [npm-image]: https://badge.fury.io/js/d3-czip.svg
 [npm-url]: https://npmjs.org/package/d3-czip
 
-[bower-image]: https://badge.fury.io/bo/d3-czip.svg
-[bower-url]: https://badge.fury.io/bo/d3-czip
-
-[travis-image]: https://travis-ci.org/smartin85/d3-czip.svg?branch=master
-[travis-url]: https://travis-ci.org/smartin85/d3-czip
+[downloads-image]: https://img.shields.io/npm/dt/d3-czip.svg
 
 [daviddm-image]: https://david-dm.org/smartin85/d3-czip.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/smartin85/d3-czip
 
 [coveralls-image]: https://coveralls.io/repos/smartin85/d3-czip/badge.svg
 [coveralls-url]: https://coveralls.io/r/smartin85/d3-czip
+
+[buy-me-a-coffee-image]: https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png
+[buy-me-a-coffee-url]: https://www.buymeacoffee.com/smartin

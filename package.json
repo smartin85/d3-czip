@@ -1,6 +1,6 @@
 {
   "name": "d3-czip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates a collection from multiple arrays",
   "keywords": [
     "d3",
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "clean": "rimraf build && mkdir build",
+    "tsc": "tsc",
     "build": "tsc && rollup -c",
     "build:watch": "run-p build:watch:*",
     "build:watch:tsc": "tsc -w",
@@ -30,7 +31,7 @@
     "test": "npm run test:coverage",
     "test:tape": "ts-node -P test/tsconfig.json node_modules/tape/bin/tape test/**/*.ts",
     "test:tdd": "ts-node -P test/tsconfig.json node_modules/tape-watch/bin/tape-watch test/**/*.ts",
-    "test:coverage": "nyc npm run test:tape && nyc report --reporter=text-lcov | coveralls",
+    "test:coverage": "nyc npm run test:tape && nyc report --reporter=text-lcov",
     "start": "run-p build:watch serve test:tdd",
     "serve": "lite-server -c server.config.js",
     "prepublish": "npm run test && uglifyjs build/d3-czip.js -c -m -o build/d3-czip.min.js",
@@ -54,20 +55,21 @@
     "all": true
   },
   "devDependencies": {
-    "@types/tape": "^4.2.29",
-    "bestzip": "^1.1.4",
-    "coveralls": "^2.13.1",
-    "lite-server": "^2.3.0",
-    "mkdirp": "^0.5.1",
-    "npm-run-all": "^4.0.2",
-    "nyc": "^10.3.0",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "rollup-watch": "^3.2.2",
-    "tape": "^4.6.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@types/tape": "^4.13.0",
+    "bestzip": "^2.1.7",
+    "coveralls": "^3.1.0",
+    "lite-server": "^2.6.1",
+    "mkdirp": "^1.0.4",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.39.0",
+    "rollup-watch": "^4.3.1",
+    "tape": "^5.1.1",
     "tape-watch": "^2.3.0",
-    "ts-node": "^3.0.2",
-    "typescript": "^2.2.2",
-    "uglify-js": "^2.8.22"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5",
+    "uglify-js": "^3.12.8"
   }
 }
