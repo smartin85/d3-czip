@@ -1,5 +1,6 @@
 # d3-czip
 [![BSD 3-Clause License][license-image]][license-url]
+[![Build Status][azure-pipeline-image]][azure-pipeline-url]
 [![NPM version][npm-image]][npm-url]
 [![npm downloads][downloads-image]][npm-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -57,6 +58,10 @@ Creates a collection of the arrays.
 [npm-url]: https://npmjs.org/package/d3-czip
 
 [downloads-image]: https://img.shields.io/npm/dt/d3-czip.svg
+
+[azure-pipeline-image]: https://dev.azure.com/smartin85/d3-czip/_apis/build/status/smartin85.d3-czip?branchName=master
+[azure-pipeline-url]: https://dev.azure.com/smartin85/d3-czip/_build/latest?definitionId=4&branchName=master
+
 
 [daviddm-image]: https://david-dm.org/smartin85/d3-czip.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/smartin85/d3-czip
